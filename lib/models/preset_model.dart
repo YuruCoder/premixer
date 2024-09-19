@@ -3,14 +3,13 @@ import 'package:premixer/models/source_model.dart';
 
 class PresetModel {
   final int id;
-  final int srcNum; // 2개
-
-  final List<RecipeModel> recipeList; // 2개
-  final List<SourceModel> srcList = []; // 2개
+  final String name;
+  final List<RecipeModel> recipeList;
+  final List<SourceModel> srcList = [];
 
   PresetModel({
     required this.id,
-    this.srcNum = 2,
+    required this.name,
     required this.recipeList,
   }) {
     for (var recipe in recipeList) {

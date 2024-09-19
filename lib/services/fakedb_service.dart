@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:premixer/interfaces/db_interface.dart';
+import 'package:premixer/interfaces/database_interface.dart';
 import 'package:premixer/models/preset_model.dart';
 import 'package:premixer/models/recipe_model.dart';
 import 'package:premixer/models/source_model.dart';
 
-class FakedbService implements DbInterface {
+class FakedbService implements DatabaseInterface {
   @override
   List<SourceModel> sourceData = [];
 
@@ -65,20 +65,20 @@ class FakedbService implements DbInterface {
   }
 
   @override
-  void setRecipe(
-    String name,
-    SourceModel srcA,
-    SourceModel srcB,
-    int ratioA,
-    int ratioB,
-  ) {
+  void setRecipe({
+    required name,
+    required SourceModel srcA,
+    required SourceModel srcB,
+    required int ratioA,
+    required int ratioB,
+  }) {
     if (!(sourceData.contains(srcA) && sourceData.contains(srcB))) {
       throw ErrorDescription('저장된 원료를 사용하지 않았습니다.');
     }
 
     recipeData.add(RecipeModel(
       id: _recipeId++,
-      drinkName: name,
+      name: name,
       srcA: srcA,
       srcB: srcB,
       ratioA: ratioA,
@@ -87,7 +87,7 @@ class FakedbService implements DbInterface {
   }
 
   @override
-  List<RecipeModel> getAllRecipies() => recipeData;
+  List<RecipeModel> getAllRecipes() => recipeData;
 
   @override
   RecipeModel getRecipeById(int id) {
@@ -95,7 +95,7 @@ class FakedbService implements DbInterface {
       (recipe) => recipe.id == id,
       orElse: () => RecipeModel(
         id: -1,
-        drinkName: '',
+        name: '',
         srcA: SourceModel(id: -1, name: ''),
         srcB: SourceModel(id: -1, name: ''),
         ratioA: 0,
@@ -122,8 +122,15 @@ class FakedbService implements DbInterface {
   }
 
   @override
-  void setPreset(List<RecipeModel> recipeList) {
-    presetData.add(PresetModel(id: _presetId++, recipeList: recipeList));
+  void setPreset({
+    required String name,
+    required List<RecipeModel> recipeList,
+  }) {
+    presetData.add(PresetModel(
+      id: _presetId++,
+      name: name,
+      recipeList: recipeList,
+    ));
   }
 
   @override
@@ -133,7 +140,11 @@ class FakedbService implements DbInterface {
   PresetModel getPresetById(int id) {
     var data = presetData.firstWhere(
       (preset) => preset.id == id,
-      orElse: () => PresetModel(id: -1, recipeList: []),
+      orElse: () => PresetModel(
+        id: -1,
+        name: '',
+        recipeList: [],
+      ),
     );
 
     if (data.id == -1) {

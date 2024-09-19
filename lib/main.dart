@@ -25,7 +25,7 @@ class _PremixerAppState extends State<PremixerApp> {
 
   static final List<Widget> _screenOptions = <Widget>[
     HomeScreen(),
-    RecipeScreen(),
+    const RecipeScreen(),
     const SettingScreen(),
   ];
 

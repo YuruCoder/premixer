@@ -3,13 +3,18 @@ import 'package:premixer/models/recipe_model.dart';
 import 'package:premixer/models/source_model.dart';
 
 class TestData {
-  static final preset = PresetModel(id: 1, recipeList: recipes);
-  static final srcA = SourceModel(id: 1, name: '망고');
-  static final srcB = SourceModel(id: 2, name: '사케');
+  static final srcA = SourceModel(
+    id: 1,
+    name: '망고',
+  );
+  static final srcB = SourceModel(
+    id: 2,
+    name: '사케',
+  );
   static final recipes = [
     RecipeModel(
       id: 1,
-      drinkName: '콜라',
+      name: '콜라',
       srcA: srcA,
       srcB: srcB,
       ratioA: 2,
@@ -17,11 +22,16 @@ class TestData {
     ),
     RecipeModel(
       id: 2,
-      drinkName: '소다',
+      name: '소다',
       srcA: srcA,
       srcB: srcB,
       ratioA: 1,
       ratioB: 2,
     ),
   ];
+  static final preset = PresetModel(
+    id: 1,
+    name: 'Preset 1',
+    recipeList: recipes,
+  );
 }
