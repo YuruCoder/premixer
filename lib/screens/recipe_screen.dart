@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:premixer/screens/add_recipe_screen.dart';
-import 'package:premixer/screens/add_source_screen.dart';
+import 'package:premixer/screens/recipes/add_recipe_screen.dart';
+import 'package:premixer/screens/sources/add_source_screen.dart';
 
 class RecipeScreen extends StatelessWidget {
   const RecipeScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:premixer/models/preset_model.dart';
-import 'package:premixer/screens/add_preset_screen.dart';
-import 'package:premixer/screens/watch_preset_screen.dart';
+import 'package:premixer/screens/presets/add_preset_screen.dart';
+import 'package:premixer/screens/presets/watch_preset_screen.dart';
 import 'package:premixer/test_data.dart';
 
 class HomeScreen extends StatelessWidget {
