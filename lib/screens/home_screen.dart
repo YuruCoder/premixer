@@ -123,18 +123,33 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          IconButton(
-            onPressed: () => {
+          GestureDetector(
+            onTap: () => {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => WatchPresetScreen(preset: data),
                   fullscreenDialog: true,
                 ),
-              )
+              ),
             },
-            icon: const Icon(Icons.chevron_right_rounded),
-          )
+            child: const Row(
+              children: [
+                Text(
+                  '자세히',
+                  style: TextStyle(
+                    color: Colors.black54,
+                    fontSize: 16,
+                  ),
+                ),
+                Icon(
+                  Icons.chevron_right_rounded,
+                  size: 24,
+                  color: Colors.black54,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

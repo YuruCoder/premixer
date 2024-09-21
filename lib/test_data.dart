@@ -31,7 +31,7 @@ class TestData {
   ];
   static final preset = PresetModel(
     id: 1,
-    name: 'Preset 1',
+    name: '프리셋 1',
     recipeList: recipes,
   );
 }
