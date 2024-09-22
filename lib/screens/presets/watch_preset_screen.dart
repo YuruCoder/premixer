@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:premixer/models/preset_model.dart';
 
 class WatchPresetScreen extends StatelessWidget {
@@ -9,6 +12,29 @@ class WatchPresetScreen extends StatelessWidget {
     required this.preset,
   });
 
+  void turnOnBluetooth() async {
+    if (await FlutterBluePlus.isSupported == false) {
+      print('Bluetooth not supported by this device');
+      return;
+    }
+
+    var subscription =
+        FlutterBluePlus.adapterState.listen((BluetoothAdapterState state) {
+      print(state);
+      if (state == BluetoothAdapterState.on) {
+        // usually start scanning, connecting, etc
+      } else {
+        // show an error to the user, etc
+      }
+    });
+
+    if (Platform.isAndroid) {
+      await FlutterBluePlus.turnOn();
+    }
+
+    subscription.cancel();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,9 +42,7 @@ class WatchPresetScreen extends StatelessWidget {
         title: Text(preset.name),
         actions: [
           IconButton(
-            onPressed: () => {
-              // 펌웨어 업데이트에 관한 로직을 구현해야 함
-            },
+            onPressed: () => {},
             icon: const Icon(Icons.send_rounded),
           )
         ],
