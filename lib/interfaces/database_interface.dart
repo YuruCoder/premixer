@@ -11,8 +11,11 @@ abstract class DatabaseInterface {
     required String name,
     String description = '',
   });
+
   List<SourceModel> getAllSources();
+
   SourceModel getSourceById(int id);
+
   bool deleteSourceById(int id);
 
   void setRecipe({
@@ -22,15 +25,21 @@ abstract class DatabaseInterface {
     required int ratioA,
     required int ratioB,
   });
+
   List<RecipeModel> getAllRecipes();
+
   RecipeModel getRecipeById(int id);
+
   bool deleteRecipeById(int id);
 
   void setPreset({
     required String name,
     required List<RecipeModel> recipeList,
   });
+
   List<PresetModel> getAllPresets();
+
   PresetModel getPresetById(int id);
+
   bool deletePresetById(int id);
 }
