@@ -12,7 +12,9 @@ class ProviderService extends ChangeNotifier {
   List<PresetModel> _presets = [];
 
   List<SourceModel> get sources => _sources;
+
   List<RecipeModel> get recipes => _recipes;
+
   List<PresetModel> get presets => _presets;
 
   ProviderService({DatabaseService? databaseService})

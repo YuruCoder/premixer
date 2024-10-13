@@ -88,7 +88,7 @@ class HomeScreen extends StatelessWidget {
 class _PresetCard extends StatelessWidget {
   final PresetModel preset;
 
-  const _PresetCard({super.key, required this.preset});
+  const _PresetCard({required this.preset});
 
   @override
   Widget build(BuildContext context) {

@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
-import 'package:premixer/models/source_model.dart';
-import 'package:premixer/models/recipe_model.dart';
+import 'package:mockito/mockito.dart';
 import 'package:premixer/models/preset_model.dart';
-import 'package:premixer/services/provider_service.dart';
+import 'package:premixer/models/recipe_model.dart';
+import 'package:premixer/models/source_model.dart';
 import 'package:premixer/services/database_service.dart';
+import 'package:premixer/services/provider_service.dart';
 
 import 'provider_service_test.mocks.dart';
 
