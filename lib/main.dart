@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:premixer/provider.dart';
 import 'package:premixer/screens/home_screen.dart';
 import 'package:premixer/screens/recipe_screen.dart';
 import 'package:premixer/screens/setting_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const PremixerApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AppStateProvider(),
+      child: const PremixerApp(),
+    ),
+  );
 }
 
 class PremixerApp extends StatefulWidget {
@@ -24,7 +31,7 @@ class _PremixerAppState extends State<PremixerApp> {
   ];
 
   static final List<Widget> _screenOptions = <Widget>[
-    HomeScreen(),
+    const HomeScreen(),
     const RecipeScreen(),
     const SettingScreen(),
   ];
