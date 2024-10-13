@@ -1,12 +1,14 @@
+import 'package:premixer/models/preset_model.dart';
+import 'package:premixer/models/recipe_model.dart';
+import 'package:premixer/models/source_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:premixer/models.dart';
 
-class DatabaseHelper {
-  static final DatabaseHelper instance = DatabaseHelper._init();
+class DatabaseService {
+  static final DatabaseService instance = DatabaseService._init();
   static Database? _database;
 
-  DatabaseHelper._init();
+  DatabaseService._init();
 
   Future<Database> get database async {
     if (_database != null) return _database!;
