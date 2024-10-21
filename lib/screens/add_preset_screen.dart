@@ -5,7 +5,10 @@ import 'package:premixer/models/recipe_model.dart';
 class AddPresetScreen extends StatefulWidget {
   final List<RecipeModel> availableRecipes;
 
-  const AddPresetScreen({super.key, required this.availableRecipes});
+  const AddPresetScreen({
+    super.key,
+    required this.availableRecipes,
+  });
 
   @override
   State<StatefulWidget> createState() => _AddPresetScreenState();
@@ -34,7 +37,9 @@ class _AddPresetScreenState extends State<AddPresetScreen> {
           padding: const EdgeInsets.all(16),
           children: [
             TextFormField(
-              decoration: const InputDecoration(labelText: '프리셋 이름'),
+              decoration: const InputDecoration(
+                labelText: '프리셋 이름',
+              ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return '프리셋 이름을 입력해주세요';
@@ -43,9 +48,16 @@ class _AddPresetScreenState extends State<AddPresetScreen> {
               },
               onSaved: (value) => _name = value!,
             ),
-            const SizedBox(height: 16),
-            const Text('레시피 선택',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const SizedBox(
+              height: 16,
+            ),
+            const Text(
+              '레시피 선택',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             ..._buildRecipeCheckboxes(),
           ],
         ),
@@ -83,7 +95,9 @@ class _AddPresetScreenState extends State<AddPresetScreen> {
       Navigator.of(context).pop(newPreset);
     } else if (_selectedRecipes.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('최소 하나의 레시피를 선택해주세요')),
+        const SnackBar(
+          content: Text('최소 하나의 레시피를 선택해주세요'),
+        ),
       );
     }
   }

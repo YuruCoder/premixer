@@ -24,11 +24,17 @@ class HomeScreen extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(
+                height: 8,
+              ),
               appState.presets.isNotEmpty
-                  ? _PresetCard(preset: appState.presets.last)
+                  ? _PresetCard(
+                      preset: appState.presets.last,
+                    )
                   : const Text('현재 프리셋이 없습니다.'),
-              const SizedBox(height: 16),
+              const SizedBox(
+                height: 16,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -51,14 +57,18 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
+              const SizedBox(
+                height: 8,
+              ),
               Expanded(
                 child: appState.presets.isEmpty
                     ? const Text('내 프리셋이 없습니다.')
                     : ListView.builder(
                         itemCount: appState.presets.length,
                         itemBuilder: (context, index) {
-                          return _PresetCard(preset: appState.presets[index]);
+                          return _PresetCard(
+                            preset: appState.presets[index],
+                          );
                         },
                       ),
               ),
@@ -88,7 +98,9 @@ class HomeScreen extends StatelessWidget {
 class _PresetCard extends StatelessWidget {
   final PresetModel preset;
 
-  const _PresetCard({required this.preset});
+  const _PresetCard({
+    required this.preset,
+  });
 
   @override
   Widget build(BuildContext context) {

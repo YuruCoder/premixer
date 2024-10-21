@@ -37,7 +37,9 @@ class _AddRecipeScreenState extends State<AddRecipeScreen> {
           padding: const EdgeInsets.all(16),
           children: [
             TextFormField(
-              decoration: const InputDecoration(labelText: '레시피 이름'),
+              decoration: const InputDecoration(
+                labelText: '레시피 이름',
+              ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return '레시피 이름을 입력해주세요';
@@ -46,9 +48,13 @@ class _AddRecipeScreenState extends State<AddRecipeScreen> {
               },
               onSaved: (value) => _name = value!,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(
+              height: 16,
+            ),
             DropdownButtonFormField<SourceModel>(
-              decoration: const InputDecoration(labelText: '재료 A'),
+              decoration: const InputDecoration(
+                labelText: '재료 A',
+              ),
               value: _sourceA,
               items: widget.availableSources
                   .map((source) => DropdownMenuItem(
@@ -59,7 +65,9 @@ class _AddRecipeScreenState extends State<AddRecipeScreen> {
               onChanged: (value) => setState(() => _sourceA = value),
               validator: (value) => value == null ? '재료 A를 선택해주세요' : null,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(
+              height: 16,
+            ),
             DropdownButtonFormField<SourceModel>(
               decoration: const InputDecoration(labelText: '재료 B'),
               value: _sourceB,
@@ -72,12 +80,16 @@ class _AddRecipeScreenState extends State<AddRecipeScreen> {
               onChanged: (value) => setState(() => _sourceB = value),
               validator: (value) => value == null ? '재료 B를 선택해주세요' : null,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(
+              height: 16,
+            ),
             Row(
               children: [
                 Expanded(
                   child: TextFormField(
-                    decoration: const InputDecoration(labelText: '비율 A'),
+                    decoration: const InputDecoration(
+                      labelText: '비율 A',
+                    ),
                     keyboardType: TextInputType.number,
                     initialValue: _ratioA.toString(),
                     validator: (value) {
@@ -93,10 +105,14 @@ class _AddRecipeScreenState extends State<AddRecipeScreen> {
                     onSaved: (value) => _ratioA = int.parse(value!),
                   ),
                 ),
-                const SizedBox(width: 16),
+                const SizedBox(
+                  width: 16,
+                ),
                 Expanded(
                   child: TextFormField(
-                    decoration: const InputDecoration(labelText: '비율 B'),
+                    decoration: const InputDecoration(
+                      labelText: '비율 B',
+                    ),
                     keyboardType: TextInputType.number,
                     initialValue: _ratioB.toString(),
                     validator: (value) {

@@ -33,7 +33,9 @@ class _AddSourceScreenState extends State<AddSourceScreen> {
           padding: const EdgeInsets.all(16),
           children: [
             TextFormField(
-              decoration: const InputDecoration(labelText: '재료 이름'),
+              decoration: const InputDecoration(
+                labelText: '재료 이름',
+              ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return '재료 이름을 입력해주세요';
@@ -42,9 +44,13 @@ class _AddSourceScreenState extends State<AddSourceScreen> {
               },
               onSaved: (value) => _name = value!,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(
+              height: 16,
+            ),
             TextFormField(
-              decoration: const InputDecoration(labelText: '설명 (선택사항)'),
+              decoration: const InputDecoration(
+                labelText: '설명 (선택사항)',
+              ),
               maxLines: 3,
               onSaved: (value) => _description = value ?? '',
             ),
